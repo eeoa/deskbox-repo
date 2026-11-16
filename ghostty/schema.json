@@ -1,16 +1,20 @@
 {
-  "schemaVersion": 2,
+  "schemaVersion": 3,
   "id": "ghostty",
   "repository": "https://github.com/eeoa/deskbox-repo",
-  "version": "1.4.0-deskbox.2",
+  "version": "1.4.0-deskbox.3",
   "scripts": {
-    "install": "ghostty-v1.4.0-deskbox.2/ghostty/install.sh",
-    "launch": "ghostty-v1.4.0-deskbox.2/ghostty/launch.sh",
-    "uninstall": "ghostty-v1.4.0-deskbox.2/ghostty/uninstall.sh"
-  },
-  "sha256": {
-    "install": "5bf342883bbabb968c5eba98b3e0b0b3bd642a6db64d161a67760fcf6a94d431",
-    "launch": "0920dbdd8a943ce4bffe2476141a04fbc3f9b1353d117c3eb211ff050aa3aeaf",
-    "uninstall": "6ac186e1b325c5a2414ee94a3247d18ae70b9a151a9775f6609a01a1bf8f62bf"
+    "install": {
+      "path": "ghostty-v1.4.0-deskbox.3/ghostty/install.sh",
+      "sha256": "b0d182ea0535a6fbfd9cfc9b61f8420a5f242d267a52c6db6e2b119b23b41be5"
+    },
+    "launch": {
+      "path": "ghostty-v1.4.0-deskbox.3/ghostty/launch.sh",
+      "sha256": "0920dbdd8a943ce4bffe2476141a04fbc3f9b1353d117c3eb211ff050aa3aeaf"
+    },
+    "uninstall": {
+      "path": "ghostty-v1.4.0-deskbox.3/ghostty/uninstall.sh",
+      "sha256": "6ac186e1b325c5a2414ee94a3247d18ae70b9a151a9775f6609a01a1bf8f62bf"
+    }
   }
 }

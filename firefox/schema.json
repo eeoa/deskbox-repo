@@ -1,16 +1,20 @@
 {
-  "schemaVersion": 2,
+  "schemaVersion": 3,
   "id": "firefox",
   "repository": "https://github.com/eeoa/deskbox-repo",
-  "version": "159.0.1-deskbox.2",
+  "version": "159.0.1-deskbox.3",
   "scripts": {
-    "install": "firefox-v159.0.1-deskbox.2/firefox/install.sh",
-    "launch": "firefox-v159.0.1-deskbox.2/firefox/launch.sh",
-    "uninstall": "firefox-v159.0.1-deskbox.2/firefox/uninstall.sh"
-  },
-  "sha256": {
-    "install": "0dee0298803f13330d24c1d7c231b099964bfe7238cb996db3a490be2b27872c",
-    "launch": "7af1b9b510199d43a757b6e24282df5f62031e9440f79a03e54fd38641f38998",
-    "uninstall": "94e302e62c37d41b630edc40af0ef85f899fa94c1855e36cc0fd9775a6ffc999"
+    "install": {
+      "path": "firefox-v159.0.1-deskbox.3/firefox/install.sh",
+      "sha256": "a999b7ef777ed04fd4b33dd9fd477f5798d337ca30cd174e55a16d58e14c84a1"
+    },
+    "launch": {
+      "path": "firefox-v159.0.1-deskbox.3/firefox/launch.sh",
+      "sha256": "7af1b9b510199d43a757b6e24282df5f62031e9440f79a03e54fd38641f38998"
+    },
+    "uninstall": {
+      "path": "firefox-v159.0.1-deskbox.3/firefox/uninstall.sh",
+      "sha256": "94e302e62c37d41b630edc40af0ef85f899fa94c1855e36cc0fd9775a6ffc999"
+    }
   }
 }
