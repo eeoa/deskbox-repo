@@ -6,7 +6,7 @@ cd "$release_dir"
 fetch() {
     name=$1 checksum=$2
     if [ -f "$name" ] && printf "%s  %s\n" "$checksum" "$name" | sha256sum -c - >/dev/null; then return; fi
-    curl --fail --silent --show-error --connect-timeout 10 --max-time 60 --output "$name.part" "https://raw.githubusercontent.com/eeoa/deskbox-repo/refs/tags/ghostty-v1.4.0-deskbox.1/ghostty/$name"
+    curl --fail --silent --show-error --connect-timeout 10 --max-time 60 --output "$name.part" "https://raw.githubusercontent.com/eeoa/deskbox-repo/refs/tags/ghostty-v1.4.0-deskbox.2/ghostty/$name"
     printf "%s  %s\n" "$checksum" "$name.part" | sha256sum -c - >/dev/null
     mv -f "$name.part" "$name"
 }
@@ -19,8 +19,6 @@ target=$(jq -er '.version' catalog.json)
 if [ -n "$current" ] && dpkg --compare-versions "$target" lt "$current"; then
     program_fail '不自动降级已安装版本'
 fi
-jq --arg release "${DESKBOX_RELEASE_NAME:?}" '. + {deskboxRelease:$release}' catalog.json > install-catalog.json.part
-mv -f install-catalog.json.part install-catalog.json
-result=$(pkg ensure ghostty "$release_dir/install-catalog.json" repair)
+result=$(pkg ensure ghostty "$release_dir/catalog.json" repair)
 version=$target
 program_result "$(printf '%s' "$result" | jq --arg version "$version" '. + {version:$version}')"
