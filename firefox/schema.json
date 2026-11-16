@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "id": "firefox",
+  "repository": "https://github.com/eeoa/deskbox-repo",
+  "version": {
+    "upstream": "159.0.1",
+    "revision": 1
+  },
+  "scripts": {
+    "install": "firefox-v159.0.1-deskbox.1/firefox/install.sh",
+    "launch": "firefox-v159.0.1-deskbox.1/firefox/launch.sh",
+    "uninstall": "firefox-v159.0.1-deskbox.1/firefox/uninstall.sh"
+  },
+  "sha256": {
+    "install": "5524bc3c4c181e6bbdc873955a3fe1171678ad60f6636368e022a22fd766bb7b",
+    "launch": "7af1b9b510199d43a757b6e24282df5f62031e9440f79a03e54fd38641f38998",
+    "uninstall": "94e302e62c37d41b630edc40af0ef85f899fa94c1855e36cc0fd9775a6ffc999"
+  }
+}

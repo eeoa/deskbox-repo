@@ -1,0 +1,7 @@
+/* BEGIN DESKBOX UI */
+/* CSS pixels follow Android logical density; 14px is approximately native 14sp. */
+:root, #navigator-toolbox, #TabsToolbar, .tabbrowser-tab,
+#urlbar, #searchbar, #sidebar-box, panel, menupopup {
+    font-size: 14px !important;
+}
+/* END DESKBOX UI */
