@@ -1,19 +1,19 @@
 #!/data/data/dev.deskbox.app/files/usr/bin/sh
 . "$DESKBOX_LIB_DIR/lib/program.sh"
-program_begin terminal install
+program_begin ghostty install
 release_dir=${DESKBOX_RELEASE_DIR:?}
 cd "$release_dir"
 fetch() {
     name=$1 checksum=$2
     if [ -f "$name" ] && printf "%s  %s\n" "$checksum" "$name" | sha256sum -c - >/dev/null; then return; fi
-    curl --fail --silent --show-error --connect-timeout 10 --max-time 60 --output "$name.part" "https://raw.githubusercontent.com/eeoa/deskbox-repo/refs/tags/terminal-v1.4.0-deskbox.1/terminal/$name"
+    curl --fail --silent --show-error --connect-timeout 10 --max-time 60 --output "$name.part" "https://raw.githubusercontent.com/eeoa/deskbox-repo/refs/tags/ghostty-v1.4.0-deskbox.1/ghostty/$name"
     printf "%s  %s\n" "$checksum" "$name.part" | sha256sum -c - >/dev/null
     mv -f "$name.part" "$name"
 }
 
-fetch catalog.json cb5e56ccc05c9e402479f5f41ecb763c487b1af728e674bffa18aaf7ab2dce43
+fetch catalog.json d9e51fd900c93f2220cf698f05f23ff46bbe0eb1b1b248c709bf3c448c81705a
 fetch configure.sh 66107e5f77dc3526dfe1e1134e54c95609d59c3f072c32365387e53857154784
-deskbox-bridge progress PREPARING terminal '{}'
+deskbox-bridge progress PREPARING ghostty '{}'
 current=$(pkg installed ghostty 2>/dev/null || true)
 target=$(jq -er '.version' catalog.json)
 if [ -n "$current" ] && dpkg --compare-versions "$target" lt "$current"; then
@@ -21,6 +21,6 @@ if [ -n "$current" ] && dpkg --compare-versions "$target" lt "$current"; then
 fi
 jq --arg release "${DESKBOX_RELEASE_NAME:?}" '. + {deskboxRelease:$release}' catalog.json > install-catalog.json.part
 mv -f install-catalog.json.part install-catalog.json
-result=$(pkg ensure terminal "$release_dir/install-catalog.json" repair)
+result=$(pkg ensure ghostty "$release_dir/install-catalog.json" repair)
 version=$target
 program_result "$(printf '%s' "$result" | jq --arg version "$version" '. + {version:$version}')"

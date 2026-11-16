@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "id": "terminal",
+  "id": "ghostty",
   "version": "1.4.0",
   "engine": "ghostty",
   "roots": [

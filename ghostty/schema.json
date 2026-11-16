@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "id": "ghostty",
+  "repository": "https://github.com/eeoa/deskbox-repo",
+  "version": {
+    "upstream": "1.4.0",
+    "revision": 1
+  },
+  "scripts": {
+    "install": "ghostty-v1.4.0-deskbox.1/ghostty/install.sh",
+    "launch": "ghostty-v1.4.0-deskbox.1/ghostty/launch.sh",
+    "uninstall": "ghostty-v1.4.0-deskbox.1/ghostty/uninstall.sh"
+  },
+  "sha256": {
+    "install": "9dcb16510a343463c149f30da15b8258242b4495cdb9d354b6f4be181b73b2b8",
+    "launch": "0920dbdd8a943ce4bffe2476141a04fbc3f9b1353d117c3eb211ff050aa3aeaf",
+    "uninstall": "6ac186e1b325c5a2414ee94a3247d18ae70b9a151a9775f6609a01a1bf8f62bf"
+  }
+}
