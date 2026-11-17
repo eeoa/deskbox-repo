@@ -35,7 +35,7 @@ clipboard-read = ask
 clipboard-write = allow
 clipboard-paste-protection = true
 confirm-close-surface = true
-command = $DESKBOX_FILES_DIR/usr/bin/deskbox-shell
+command = ${terminal_command:-$DESKBOX_FILES_DIR/usr/bin/deskbox-shell}
 working-directory = $HOME
 CONFIG
 state=$DESKBOX_SESSION_STATE/display.json

@@ -14,7 +14,7 @@ fetch() {
 }
 
 fetch catalog.json 7f3dd097cf70fdd62ce67f55238abcf10ebfcb3c147f8a3d9d9059e47b0b7325
-fetch configure.sh 66107e5f77dc3526dfe1e1134e54c95609d59c3f072c32365387e53857154784
+fetch configure.sh 29c4831b121c0d26bc3812c0360bc3abca3a894ac88ed549b8fb05863fb467d1 "https://raw.githubusercontent.com/eeoa/deskbox-repo/refs/tags/ghostty-v1.4.0-deskbox.8/ghostty/configure.sh"
 fetch resolve-shared-tools.sh de83f5aedb64cbee498f45c27703b1536b3a08e3076b01b8df91e3e262b181de "https://raw.githubusercontent.com/eeoa/deskbox-repo/refs/tags/shared-tools-v1/common/resolve-shared-tools.sh"
 
 # Use the Turnip build paired with the catalog's Mesa on the validated Adreno 750.

@@ -2,15 +2,15 @@
   "schemaVersion": 3,
   "id": "ghostty",
   "repository": "https://github.com/eeoa/deskbox-repo",
-  "version": "1.4.0-deskbox.7",
+  "version": "1.4.0-deskbox.8",
   "scripts": {
     "install": {
-      "path": "ghostty-v1.4.0-deskbox.7/ghostty/install.sh",
-      "sha256": "1a6f76b35ebd877ce01f33dc0149e065ffdf7d93da183fad3aedc7b566af4b5c"
+      "path": "ghostty-v1.4.0-deskbox.8/ghostty/install.sh",
+      "sha256": "be74e4bb1dab0567519536798bf021caee3e1d2b48957a296c9f89c8b4bf760c"
     },
     "launch": {
-      "path": "ghostty-v1.4.0-deskbox.7/ghostty/launch.sh",
-      "sha256": "b6e968cb7f142a8cd36114ea4599c362839a095e7f245b7d0673550d78fd3138"
+      "path": "ghostty-v1.4.0-deskbox.8/ghostty/launch.sh",
+      "sha256": "7de7b2da4e70c5e405b1ffc91b6f4f0b068d0d0feb6adb4542e0107b25c1bc46"
     },
     "uninstall": {
       "path": "ghostty-v1.4.0-deskbox.5/ghostty/uninstall.sh",
