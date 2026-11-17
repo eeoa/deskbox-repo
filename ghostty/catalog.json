@@ -12,6 +12,10 @@
     "dbus",
     "xclip"
   ],
+  "sharedTools": [
+    "ttf-jetbrains-mono",
+    "xclip"
+  ],
   "excludedDependencies": {
     "termux-tools": "Desk Box supplies the shell, pkg and Android integration"
   },

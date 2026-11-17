@@ -7,6 +7,9 @@
     "vscode",
     "git"
   ],
+  "sharedTools": [
+    "git"
+  ],
   "verification": "Microsoft code stable, Debian trixie and Termux packages pinned from signature-verified indexes. The GNU desktop uses the shared Desk Box package snapshot.",
   "packages": [
     {

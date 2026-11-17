@@ -8,6 +8,11 @@
     "git",
     "libxtst"
   ],
+  "sharedTools": [
+    "git",
+    "ttf-jetbrains-mono",
+    "xclip"
+  ],
   "verification": "Pinned archives from signature-verified OpenAI, Debian trixie and Termux glibc indexes; upstream maintainer scripts never run; Git and its shared Bionic dependencies use the pinned signed Termux main snapshot",
   "packages": [
     {
