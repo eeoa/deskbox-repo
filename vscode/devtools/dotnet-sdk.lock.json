@@ -1,0 +1,14 @@
+{
+  "version": "10.0.404",
+  "metadata": "https://builds.dotnet.microsoft.com/dotnet/release-metadata/10.0/releases.json",
+  "url": "https://builds.dotnet.microsoft.com/dotnet/Sdk/10.0.404/dotnet-sdk-10.0.404-linux-arm64.tar.gz",
+  "sha512": "3533a3869da219cac45c567aadac3d8e96cdf1c6a04fe1c1d5fdeefea5d45af8424488f0144730d11b4a751f7ad546fb11e4c2b2725cd8401efee726711f8f11",
+  "nativePackages": [
+    {
+      "name": "libicu76",
+      "version": "76.1-4",
+      "url": "https://deb.debian.org/debian/pool/main/i/icu/libicu76_76.1-4_arm64.deb",
+      "sha256": "62eb15577c881b7d02aa861e3eb860902335630cc8174daf525b48c2fa39298f"
+    }
+  ]
+}
