@@ -7,15 +7,15 @@ catalog="$release_dir/catalog.json"
 checksum=13f8f7956c324442a4515ecfe0a8a68c7de79d7e6c348a063c596d94cc7899d8
 if ! printf '%s  %s\n' "$checksum" "$catalog" | sha256sum -c - >/dev/null 2>&1; then
     curl --fail --silent --show-error --connect-timeout 10 --max-time 60 --output "$catalog.part" \
-        "https://raw.githubusercontent.com/eeoa/deskbox-repo/refs/tags/libreoffice-v25.2.3-deskbox.4/libreoffice/catalog.json"
+        "https://raw.githubusercontent.com/eeoa/deskbox-repo/refs/tags/libreoffice-v25.2.3-deskbox.5/libreoffice/catalog.json"
     printf '%s  %s\n' "$checksum" "$catalog.part" | sha256sum -c - >/dev/null
     mv -f "$catalog.part" "$catalog"
 fi
 configure="$release_dir/configure.sh"
-configure_checksum=1b1bd70fdcf031892a3187b338f8aa26aee700957b15c66142349c3229fe83b0
+configure_checksum=bdc07461b704027b29ea857cf745dc51be90bbd6f792bf5bd64f9389020aed2f
 if ! printf '%s  %s\n' "$configure_checksum" "$configure" | sha256sum -c - >/dev/null 2>&1; then
     curl --fail --silent --show-error --connect-timeout 10 --max-time 60 --output "$configure.part" \
-        "https://raw.githubusercontent.com/eeoa/deskbox-repo/refs/tags/libreoffice-v25.2.3-deskbox.4/libreoffice/configure.sh"
+        "https://raw.githubusercontent.com/eeoa/deskbox-repo/refs/tags/libreoffice-v25.2.3-deskbox.5/libreoffice/configure.sh"
     printf '%s  %s\n' "$configure_checksum" "$configure.part" | sha256sum -c - >/dev/null
     mv -f "$configure.part" "$configure"
 fi

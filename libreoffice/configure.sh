@@ -11,11 +11,18 @@ mkdir -p "$profile"
 # Debian's registry symlink normally relies on ucf/postinst. Assemble an owned
 # resource view from the original package files without executing those scripts
 # or changing shared payloads. The upstream ELF files remain byte-exact.
-key=$({ printf 'libreoffice-view-v4\n'; readlink -f "$office/share/.registry/main.xcd"; } | sha256sum | cut -d ' ' -f 1)
+key=$({ printf 'libreoffice-view-v5\n'; readlink -f "$office/share/.registry/main.xcd"; } | sha256sum | cut -d ' ' -f 1)
 view="$HOME/.cache/deskbox/libreoffice/$key"
-if [ ! -f "$view/.ready" ]; then
-    mkdir -p "$view/share/registry" "$view/share/psprint" "$view/share/prereg/bundled" "$view/share/uno_packages/cache"
-    ln -sfn "$office/program" "$view/program"
+if [ ! -f "$view/.ready" ] || ! cmp -s "$office/program/soffice.bin" "$view/program/soffice.bin"; then
+    mkdir -p "$view/program" "$view/share/registry" "$view/share/psprint" "$view/share/prereg/bundled" "$view/share/uno_packages/cache"
+    # Relative dlopen calls are anchored beside libmergedlo. Give the app one
+    # actual program directory across Debian's split package payloads. Only the
+    # tiny upstream executable is copied byte-for-byte; libraries remain links.
+    cp -Rsf --no-preserve=mode "$office/program/." "$view/program/"
+    cp -L "$office/program/soffice.bin" "$view/program/soffice.bin.part"
+    chmod u+rx,u-w "$view/program/soffice.bin.part"
+    cmp -s "$office/program/soffice.bin" "$view/program/soffice.bin.part"
+    mv -f "$view/program/soffice.bin.part" "$view/program/soffice.bin"
     for resource in "$office/"*; do
         name=$(basename "$resource")
         case "$name" in program|share|presets) continue;; esac
@@ -40,12 +47,15 @@ if [ ! -f "$view/.ready" ]; then
     cp -RL --no-preserve=mode "$office/presets" "$view/presets"
     chmod -R u+rwX "$view/presets"
     printf '%s\n' '<?xml version="1.0"?><fontconfig>' \
-        "<include>$HOME/.config/fontconfig/fonts.conf</include>" \
-        "<dir>$PREFIX/gnu/root/usr/share/fonts</dir></fontconfig>" > "$view/fonts.conf"
+        "<include>$PREFIX/gnu/root/etc/fonts/fonts.conf</include>" \
+        "<dir>$PREFIX/gnu/root/usr/share/fonts</dir><dir>$PREFIX/share/fonts</dir>" \
+        '<dir>/system/fonts</dir></fontconfig>' > "$view/fonts.conf"
     touch "$view/.ready"
 fi
 export FONTCONFIG_FILE="$view/fonts.conf"
+export FONTCONFIG_PATH="$PREFIX/gnu/root/etc/fonts"
+export GDK_DPI_SCALE="${DESKBOX_FONT_FACTOR:-1}"
 export SAL_USE_VCLPLUGIN=gtk3
-export UNO_PATH="$office/program"
-export URE_BOOTSTRAP="vnd.sun.star.pathname:$office/program/fundamentalrc"
-export DESKBOX_GNU_LIBRARY_PATH_EXTRA="$office/program:$PREFIX/gnu/root/usr/lib/aarch64-linux-gnu/blas:$PREFIX/gnu/root/usr/lib/aarch64-linux-gnu/lapack${DESKBOX_GNU_LIBRARY_PATH_EXTRA:+:$DESKBOX_GNU_LIBRARY_PATH_EXTRA}"
+export UNO_PATH="$view/program"
+export URE_BOOTSTRAP="vnd.sun.star.pathname:$view/program/fundamentalrc"
+export DESKBOX_GNU_LIBRARY_PATH_EXTRA="$view/program:$PREFIX/gnu/root/usr/lib/aarch64-linux-gnu/blas:$PREFIX/gnu/root/usr/lib/aarch64-linux-gnu/lapack${DESKBOX_GNU_LIBRARY_PATH_EXTRA:+:$DESKBOX_GNU_LIBRARY_PATH_EXTRA}"

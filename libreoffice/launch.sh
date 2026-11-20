@@ -8,7 +8,7 @@ printf '%s\n' "$$" > "$DESKBOX_CLIENT_PID_FILE"
 set -- --nologo --nofirststartwizard
 while :; do
     status=0
-    (gnu_exec "$office/program/soffice.bin" "-env:UserInstallation=file://$profile" \
+    (gnu_exec "$view/program/soffice.bin" "-env:UserInstallation=file://$profile" \
         "-env:BRAND_BASE_DIR=file://$view" \
         "-env:FHS_CONFIG_FILE=file://$PREFIX/gnu/root/etc/libreoffice/sofficerc" "$@") || status=$?
     case "$status" in
