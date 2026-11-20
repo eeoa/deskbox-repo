@@ -11,7 +11,7 @@ mkdir -p "$profile"
 # Debian's registry symlink normally relies on ucf/postinst. Assemble an owned
 # resource view from the original package files without executing those scripts
 # or changing shared payloads. The upstream ELF files remain byte-exact.
-key=$(readlink -f "$office/share/.registry/main.xcd" | sha256sum | cut -d ' ' -f 1)
+key=$({ printf 'libreoffice-view-v2\n'; readlink -f "$office/share/.registry/main.xcd"; } | sha256sum | cut -d ' ' -f 1)
 view="$HOME/.cache/deskbox/libreoffice/$key"
 if [ ! -f "$view/.ready" ]; then
     mkdir -p "$view/share/registry" "$view/share/psprint" "$view/share/prereg/bundled" "$view/share/uno_packages/cache"
@@ -26,7 +26,8 @@ if [ ! -f "$view/.ready" ]; then
         [ "$name" = main.xcd ] && continue
         ln -sfn "$resource" "$view/share/registry/$name"
     done
-    ln -sfn "$office/share/.registry/main.xcd" "$view/share/registry/main.xcd"
+    sed "s|file:///usr/share/|file://$PREFIX/gnu/root/usr/share/|g" \
+        "$office/share/.registry/main.xcd" > "$view/share/registry/main.xcd"
     ln -sfn "$PREFIX/gnu/root/etc/libreoffice/psprint.conf" "$view/share/psprint/psprint.conf"
     printf '%s\n' '<?xml version="1.0"?><fontconfig>' \
         "<include>$HOME/.config/fontconfig/fonts.conf</include>" \
@@ -38,6 +39,9 @@ export SAL_USE_VCLPLUGIN=gtk3
 export UNO_PATH="$office/program"
 export URE_BOOTSTRAP="vnd.sun.star.pathname:$office/program/fundamentalrc"
 export DESKBOX_GNU_LIBRARY_PATH_EXTRA="$office/program:$PREFIX/gnu/root/usr/lib/aarch64-linux-gnu/blas:$PREFIX/gnu/root/usr/lib/aarch64-linux-gnu/lapack${DESKBOX_GNU_LIBRARY_PATH_EXTRA:+:$DESKBOX_GNU_LIBRARY_PATH_EXTRA}"
+# UNO finds unorc beside cppuhelper using dladdr. Load the original libraries
+# by their program paths before Debian's multiarch aliases can select them.
+export DESKBOX_EXEC_GNU_PRELOAD_EXTRA="$office/program/libuno_sal.so.3:$office/program/libuno_cppuhelpergcc3.so.3${DESKBOX_EXEC_GNU_PRELOAD_EXTRA:+:$DESKBOX_EXEC_GNU_PRELOAD_EXTRA}"
 printf '%s\n' "$$" > "$DESKBOX_CLIENT_PID_FILE"
 gnu_exec "$office/program/soffice.bin" "-env:UserInstallation=file://$profile" \
     "-env:BRAND_BASE_DIR=file://$view" \
