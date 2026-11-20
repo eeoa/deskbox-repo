@@ -2,18 +2,18 @@
   "schemaVersion": 3,
   "id": "vscode",
   "repository": "https://github.com/eeoa/deskbox-repo",
-  "version": "1.146.0-deskbox.4",
+  "version": "1.146.0-deskbox.5",
   "scripts": {
     "install": {
-      "path": "vscode-v1.146.0-deskbox.4/vscode/install.sh",
-      "sha256": "9bd74dfbf62606be505a1134b02154b48eefe23d535c94fa901ec860a088fe61"
+      "path": "vscode-v1.146.0-deskbox.5/vscode/install.sh",
+      "sha256": "70ae5d8f62eb5ba57fefe80d72d2df6456372ef607bf5f0d4f0843147a38c3db"
     },
     "launch": {
-      "path": "vscode-v1.146.0-deskbox.4/vscode/launch.sh",
-      "sha256": "05080727ec154fd7482268c3803fdaf612faba8486a797b659c8ffd4e3fa4f8a"
+      "path": "vscode-v1.146.0-deskbox.5/vscode/launch.sh",
+      "sha256": "91690812ddea2ff51fc6c6c56aa7c092e88bb0dd9a6ebf303b8d07a3206b79e4"
     },
     "uninstall": {
-      "path": "vscode-v1.146.0-deskbox.4/vscode/uninstall.sh",
+      "path": "vscode-v1.146.0-deskbox.5/vscode/uninstall.sh",
       "sha256": "11f9ddb3fb7713cdcbc6b987ef80b1527d7287a3f64cc6f65d06d13003260096"
     }
   }

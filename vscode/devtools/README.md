@@ -15,6 +15,11 @@ as their adjacent lock files. Existing projects and unrelated settings are retai
 - `sh install-dotnet.sh`: install the pinned .NET 10 LTS ARM64 SDK and matching ICU
   dependency using the adjacent `dotnet-sdk.lock.json`. Both downloads are checked.
   The `dotnet` launcher goes in `~/.local/bin`; no invariant-globalization bypass is used.
+  An owned `env.d/dotnet.sh` fragment also makes ICU available to extension apphosts.
+  After installing the C# extension, run `sh configure-csharp.sh` to select this SDK.
+- `sh configure-python.sh`: select the upstream JavaScript environment locator and
+  disable its experimental native locator, which crashes on this Android app UID.
+  Run after installing the Microsoft Python extension, then reload VS Code.
 - `sh python-venv.sh /absolute/project/.venv`: create a Python virtual environment and
   bootstrap the pinned official PyPI pip wheel, checking SHA-256. This avoids relying
   on an ensurepip wheel in the immutable APK base. Activate normally and use

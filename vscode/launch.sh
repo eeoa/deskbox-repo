@@ -11,6 +11,10 @@ if command -v deskbox_bionic_commands >/dev/null 2>&1; then
         export GH_PATH="$profile/bionic-commands/bin/gh"
     fi
 fi
+for environment in "$profile"/env.d/*.sh; do
+    [ -f "$environment" ] || continue
+    . "$environment"
+done
 export FONTCONFIG_FILE="$HOME/.config/fontconfig/fonts.conf"
 deskbox_gnu_desktop
 scale=$(awk -v display="$DESKBOX_SCALE" -v font="$DESKBOX_FONT_FACTOR" 'BEGIN {printf "%.6f",display*font}')

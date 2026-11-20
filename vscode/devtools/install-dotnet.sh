@@ -74,4 +74,19 @@ EOF
 sed -i "s/@VERSION@/$version/g" "$bin/dotnet.new"
 chmod 700 "$bin/dotnet.new"
 mv "$bin/dotnet.new" "$bin/dotnet"
+environment_dir="$HOME/.config/deskbox/vscode/env.d"
+mkdir -p "$environment_dir"
+if [ -f "$environment_dir/dotnet.sh" ] && ! grep -q '^# Desk Box dotnet environment$' "$environment_dir/dotnet.sh"; then
+    printf '%s\n' 'An existing user dotnet environment was preserved.' >&2
+    exit 1
+fi
+cat > "$environment_dir/dotnet.sh.new" <<'EOF'
+# Desk Box dotnet environment
+export DOTNET_ROOT="$HOME/.local/share/deskbox/toolchains/dotnet/@VERSION@"
+export DOTNET_MULTILEVEL_LOOKUP=0 DOTNET_CLI_TELEMETRY_OPTOUT=1
+export DESKBOX_GNU_LIBRARY_PATH_EXTRA="$DOTNET_ROOT/native/usr/lib/aarch64-linux-gnu${DESKBOX_GNU_LIBRARY_PATH_EXTRA:+:$DESKBOX_GNU_LIBRARY_PATH_EXTRA}"
+EOF
+sed -i "s/@VERSION@/$version/g" "$environment_dir/dotnet.sh.new"
+chmod 600 "$environment_dir/dotnet.sh.new"
+mv "$environment_dir/dotnet.sh.new" "$environment_dir/dotnet.sh"
 printf 'Installed .NET SDK %s in %s\n' "$version" "$root"
