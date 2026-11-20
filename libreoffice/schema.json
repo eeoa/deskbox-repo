@@ -2,18 +2,18 @@
   "schemaVersion": 3,
   "id": "libreoffice",
   "repository": "https://github.com/eeoa/deskbox-repo",
-  "version": "25.2.3-deskbox.3",
+  "version": "25.2.3-deskbox.4",
   "scripts": {
     "install": {
-      "path": "libreoffice-v25.2.3-deskbox.3/libreoffice/install.sh",
-      "sha256": "b30c2bf31d021dc5cf4c25cbdeb24f49bb88da05d520f2c30cd28fe647788b13"
+      "path": "libreoffice-v25.2.3-deskbox.4/libreoffice/install.sh",
+      "sha256": "e027944217e3258263997e90e6b1484d82412c86ce53c7761a02711fe5f1b362"
     },
     "launch": {
-      "path": "libreoffice-v25.2.3-deskbox.3/libreoffice/launch.sh",
-      "sha256": "0fd56ac05933ba06f318ceb7cba97c4ab6bc8e16e720af902a89c5f1a35910ef"
+      "path": "libreoffice-v25.2.3-deskbox.4/libreoffice/launch.sh",
+      "sha256": "6d9fb6eaacbfe5941dced5d8473b0dc5cc29e58ee5acf40a8bf4e025a5b85bd9"
     },
     "uninstall": {
-      "path": "libreoffice-v25.2.3-deskbox.3/libreoffice/uninstall.sh",
+      "path": "libreoffice-v25.2.3-deskbox.4/libreoffice/uninstall.sh",
       "sha256": "374295b5e40734e60bcfdc1c79b1abff0cf48564e4856636142adabc6d0bb4ce"
     }
   }
