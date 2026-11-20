@@ -2,18 +2,18 @@
   "schemaVersion": 3,
   "id": "openra",
   "repository": "https://github.com/eeoa/deskbox-repo",
-  "version": "20261026-playtest-deskbox.3",
+  "version": "20261026-playtest-deskbox.4",
   "scripts": {
     "install": {
-      "path": "openra-v20261026-playtest-deskbox.3/openra/install.sh",
-      "sha256": "e4cf742ca531a19cfb2c2ce9394b611722fda648b8b436766aab28d3f25a0edf"
+      "path": "openra-v20261026-playtest-deskbox.4/openra/install.sh",
+      "sha256": "5d8759e8dbaad1513fac12f628b6964715a904dce1993b38c3f2e039787d8f73"
     },
     "launch": {
-      "path": "openra-v20261026-playtest-deskbox.3/openra/launch.sh",
-      "sha256": "884af7231b5cd82ef5a9212474b057b4cfa09d791a941db81c71644a4b96eb37"
+      "path": "openra-v20261026-playtest-deskbox.4/openra/launch.sh",
+      "sha256": "9d41b5307237b178a8b81d570ddfcc29fc702b27d4dc5c18cf5731c43c1eadcb"
     },
     "uninstall": {
-      "path": "openra-v20261026-playtest-deskbox.3/openra/uninstall.sh",
+      "path": "openra-v20261026-playtest-deskbox.4/openra/uninstall.sh",
       "sha256": "47c2b2b80327c9c176c0611be5b0756ff1370d5c13937490348e54d578744c62"
     }
   }

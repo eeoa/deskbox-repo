@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "openra",
-  "version": "20261026-playtest-deskbox.1",
+  "version": "20261026-playtest-deskbox.4",
   "roots": [
     "gnu-libgl1",
     "gnu-libgl1-mesa-dri",
@@ -15,7 +15,8 @@
     "gnu-libxi6",
     "gnu-libxss1",
     "gnu-libpulse0",
-    "openra-red-alert"
+    "openra-red-alert",
+    "gnu-mesa-kgsl"
   ],
   "verification": "Signed Debian trixie/main and trixie-security ARM64 indexes; existing Desk Box GNU dependencies held at their published hashes. No maintainer scripts.",
   "packages": [
@@ -1600,6 +1601,17 @@
       "layout": "gnu-debian",
       "storeRevision": 103,
       "upstreamPackage": "deskbox-openra-ra"
+    },
+    {
+      "id": "gnu-mesa-kgsl",
+      "version": "27.0.0-devel-20261025-deskbox.1",
+      "architecture": "arm64",
+      "url": "https://github.com/eeoa/deskbox-repo/releases/download/openra-v20261026-playtest-deskbox.4/deskbox-mesa-kgsl_27.0.0-devel-20261025-deskbox.1_arm64.deb",
+      "bytes": 7773336,
+      "sha256": "740d2ca52248a215d7e45b5eee706031f19fa105acf0b42c6a5cd8fad8e76a35",
+      "layout": "gnu-debian",
+      "storeRevision": 103,
+      "upstreamPackage": "deskbox-mesa-kgsl"
     }
   ]
 }
