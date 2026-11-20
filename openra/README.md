@@ -1,6 +1,6 @@
 # OpenRA · Red Alert（ARM64 预览）
 
-当前资源 `20261026-playtest-deskbox.4`，需要含 OpenRA Activity 的 Desk Box
+当前资源 `20261026-playtest-deskbox.5`，需要含 OpenRA Activity 的 Desk Box
 （本轮 APK 为 `0.15.0-dev.36`）。OPD2403／Android 16 的 3000×2120 短场景中，
 原版 GNU Mesa KGSL + SDL EGL 达到约 60 FPS；两分钟复测检查场景、文字与操作栏。
 这是小规模战役场景，不代表大型对战或长期稳定性。触屏首次点击仍可能需要重试，建议鼠标。
@@ -34,3 +34,5 @@ GNU Xlib locale、SDL 显示比例、PulseAudio 子目录和 PseudoFullscreen �
 热重连、冷启动、首页强制关闭和数据保留。性能场景使用上游 `Launch.Benchmark` CSV，
 自有地图副本追加 Lua 单位移动，不修改共享引擎文件。未验收完整战役通关、联机对战、
 大型遭遇战、长期运行、完整回放及卸载后重装。预览版和触屏限制仍保留。
+
+`.5` 修正从旧资源更新时的依赖选择：安装动作明确使用目标 catalog，避免公共 repair 模式保留旧版本清单。图形包继续固定于 `.4`；`.4` 标签保留。
