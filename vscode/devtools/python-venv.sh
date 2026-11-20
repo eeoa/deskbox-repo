@@ -4,7 +4,17 @@ set -eu
 . "${DESKBOX_LIB_DIR:?}/profile.sh"
 [ "$#" = 1 ] || { printf 'Usage: %s VENV_DIRECTORY\n' "$0" >&2; exit 2; }
 venv=$1
-python3 -m venv --without-pip "$venv"
+if [ ! -f "$venv/pyvenv.cfg" ]; then
+    if [ -d "$venv" ] && [ -n "$(ls -A "$venv")" ]; then
+        printf '%s\n' 'An existing non-venv directory was preserved.' >&2
+        exit 1
+    fi
+    python3 -m venv --without-pip "$venv"
+fi
+if "$venv/bin/python" -m pip --version >/dev/null 2>&1; then
+    printf 'Existing virtual environment and pip retained: %s\n' "$venv"
+    exit 0
+fi
 venv=$(CDPATH= cd -- "$venv" && pwd)
 cache="$HOME/.cache/deskbox/python"
 mkdir -p "$cache"
