@@ -7,7 +7,7 @@ openra_root="$gnu_root/usr/lib/openra"
 profile="$HOME/.config/openra"
 mkdir -p "$profile"
 export ENGINE_DIR="$openra_root"
-export DESKBOX_GNU_LIBRARY_PATH_EXTRA="$openra_root${DESKBOX_GNU_LIBRARY_PATH_EXTRA:+:$DESKBOX_GNU_LIBRARY_PATH_EXTRA}"
+export DESKBOX_GNU_LIBRARY_PATH_EXTRA="$openra_root:$gnu_root/usr/lib/aarch64-linux-gnu/pulseaudio${DESKBOX_GNU_LIBRARY_PATH_EXTRA:+:$DESKBOX_GNU_LIBRARY_PATH_EXTRA}"
 export SDL_VIDEODRIVER=x11
 export XLOCALEDIR="$gnu_root/usr/share/X11/locale"
 # The engine supports this native window scale; UIScale is the extra text/UI factor.
