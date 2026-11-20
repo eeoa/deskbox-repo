@@ -5,7 +5,7 @@ set -eu
 . "$DESKBOX_LIB_DIR/lib/gnu-desktop.sh"
 deskbox_gnu_desktop
 gnu_root="$PREFIX/gnu/root"
-key=$({ printf 'gimp-environment-v1\n'; readlink -f "$gnu_root/usr/bin/gimp-3.0"; } | sha256sum | cut -d ' ' -f 1)
+key=$({ printf 'gimp-environment-v2\n'; readlink -f "$gnu_root/usr/bin/gimp-3.0"; } | sha256sum | cut -d ' ' -f 1)
 view="$HOME/.cache/deskbox/gimp/$key"
 if [ ! -f "$view/.ready" ]; then
     mkdir -p "$view/interpreters"
@@ -30,6 +30,8 @@ export GIMP3_PLUGINDIR="$gnu_root/usr/lib/aarch64-linux-gnu/gimp/3.0"
 export GEGL_PATH="$gnu_root/usr/lib/aarch64-linux-gnu/gegl-0.4"
 export BABL_PATH="$gnu_root/usr/lib/aarch64-linux-gnu/babl-0.1"
 export GEGL_USE_OPENCL=no
+# Debian alternatives keep these ABI-compatible providers in subdirectories.
+export DESKBOX_GNU_LIBRARY_PATH_EXTRA="$gnu_root/usr/lib/aarch64-linux-gnu/blas:$gnu_root/usr/lib/aarch64-linux-gnu/lapack${DESKBOX_GNU_LIBRARY_PATH_EXTRA:+:$DESKBOX_GNU_LIBRARY_PATH_EXTRA}"
 export GI_TYPELIB_PATH="$gnu_root/usr/lib/aarch64-linux-gnu/girepository-1.0"
 export PYTHONHOME="$gnu_root/usr"
 export PYTHONPATH="$gnu_root/usr/lib/python3/dist-packages"
