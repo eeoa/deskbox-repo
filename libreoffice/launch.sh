@@ -39,11 +39,8 @@ export SAL_USE_VCLPLUGIN=gtk3
 export UNO_PATH="$office/program"
 export URE_BOOTSTRAP="vnd.sun.star.pathname:$office/program/fundamentalrc"
 export DESKBOX_GNU_LIBRARY_PATH_EXTRA="$office/program:$PREFIX/gnu/root/usr/lib/aarch64-linux-gnu/blas:$PREFIX/gnu/root/usr/lib/aarch64-linux-gnu/lapack${DESKBOX_GNU_LIBRARY_PATH_EXTRA:+:$DESKBOX_GNU_LIBRARY_PATH_EXTRA}"
-# UNO finds unorc beside cppuhelper using dladdr. Load the original libraries
-# by their program paths before Debian's multiarch aliases can select them.
-export DESKBOX_EXEC_GNU_PRELOAD_EXTRA="$office/program/libuno_sal.so.3:$office/program/libuno_cppuhelpergcc3.so.3${DESKBOX_EXEC_GNU_PRELOAD_EXTRA:+:$DESKBOX_EXEC_GNU_PRELOAD_EXTRA}"
 printf '%s\n' "$$" > "$DESKBOX_CLIENT_PID_FILE"
-gnu_exec "$office/program/soffice.bin" "-env:UserInstallation=file://$profile" \
+gnu_exec "$office/program/oosplash" "-env:UserInstallation=file://$profile" \
     "-env:BRAND_BASE_DIR=file://$view" \
     "-env:FHS_CONFIG_FILE=file://$PREFIX/gnu/root/etc/libreoffice/sofficerc" \
     --nologo --nofirststartwizard
