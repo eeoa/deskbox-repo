@@ -1,20 +1,11 @@
 #!/data/data/dev.deskbox.app/files/usr/bin/sh
 set -eu
+: "${DESKBOX_EXEC_ACTIVE:?请先更新 Desk Box 以启用公共进程启动环境}"
 . "$DESKBOX_LIB_DIR/lib/gnu.sh"
 . "$DESKBOX_LIB_DIR/lib/gnu-desktop.sh"
 
 profile="$HOME/.config/deskbox/vscode"
 mkdir -p "$profile/user-data" "$profile/extensions"
-if command -v deskbox_bionic_commands >/dev/null 2>&1; then
-    deskbox_bionic_commands "$profile/bionic-commands" "$PREFIX/bin/git" "$PREFIX/bin/gh"
-    if [ -f "$profile/bionic-commands/targets/gh" ]; then
-        export GH_PATH="$profile/bionic-commands/bin/gh"
-    fi
-fi
-for environment in "$profile"/env.d/*.sh; do
-    [ -f "$environment" ] || continue
-    . "$environment"
-done
 export FONTCONFIG_FILE="$HOME/.config/fontconfig/fonts.conf"
 deskbox_gnu_desktop
 scale=$(awk -v display="$DESKBOX_SCALE" -v font="$DESKBOX_FONT_FACTOR" 'BEGIN {printf "%.6f",display*font}')

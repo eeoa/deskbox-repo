@@ -1,6 +1,6 @@
 # Optional development tools
 
-These helpers require Desk Box 0.15.0-dev.25 or later and run after VS Code is installed. They use the public
+These helpers require Desk Box 0.15.0-dev.27 or later and run after VS Code is installed. They use the public
 package interface and app-private home; no root, chroot, system mounts or upstream
 extension patches are required. Run downloaded helpers from the same release tag
 as their adjacent lock files. Existing projects and unrelated settings are retained.
@@ -15,7 +15,8 @@ as their adjacent lock files. Existing projects and unrelated settings are retai
 - `sh install-dotnet.sh`: install the pinned .NET 10 LTS ARM64 SDK and matching ICU
   dependency using the adjacent `dotnet-sdk.lock.json`. Both downloads are checked.
   The `dotnet` launcher goes in `~/.local/bin`; no invariant-globalization bypass is used.
-  An owned `env.d/dotnet.sh` fragment also makes ICU available to extension apphosts.
+  An owned `~/.config/deskbox/environment.d/dotnet.sh` fragment makes ICU available
+  to all programs and terminals, including extension apphosts.
   After installing the C# extension, run `sh configure-csharp.sh` to select this SDK.
 - `sh configure-python.sh`: select the upstream JavaScript environment locator and
   disable its experimental native locator, which crashes on this Android app UID.
@@ -25,9 +26,9 @@ as their adjacent lock files. Existing projects and unrelated settings are retai
   on an ensurepip wheel in the immutable APK base. Activate normally and use
   `python -m pip install ...`. It does not replace the base interpreter or system pip.
 
-VS Code's launch script refreshes executable APK aliases for Git and optional `gh`
-on every launch. Install `gh` with `pkg install gh`, authenticate on the device, and
-run `gh auth setup-git` there. Never copy another machine's credentials.
+Program execution is provided by Desk Box's shared runtime. There are no Git/gh
+aliases or per-application tool lists. Install `gh` with `pkg install gh`, authenticate
+on the device, and run `gh auth setup-git` there. Never copy another machine's credentials.
 
 The SDK and compiler packages are optional; the standard VS Code installation does
 not download all language toolchains. See the main Desk Box device validation report

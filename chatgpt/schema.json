@@ -2,18 +2,18 @@
   "schemaVersion": 3,
   "id": "chatgpt",
   "repository": "https://github.com/eeoa/deskbox-repo",
-  "version": "26.1111.21308-deskbox.5",
+  "version": "26.1111.21308-deskbox.6",
   "scripts": {
     "install": {
-      "path": "chatgpt-v26.1111.21308-deskbox.5/chatgpt/install.sh",
-      "sha256": "37c9433bfbd56bc0268ef529e3673794703de57ff9a079a0bb04c4c1273f126a"
+      "path": "chatgpt-v26.1111.21308-deskbox.6/chatgpt/install.sh",
+      "sha256": "fd55c4fc4c46c96d508845c7074381ed86542c2d0e7bacf01892393c160e0b0f"
     },
     "launch": {
-      "path": "chatgpt-v26.1111.21308-deskbox.5/chatgpt/launch.sh",
+      "path": "chatgpt-v26.1111.21308-deskbox.6/chatgpt/launch.sh",
       "sha256": "c25daabaf3b5d2eba1c7236000b625e7238df2a4c5563933b88199a57149f326"
     },
     "uninstall": {
-      "path": "chatgpt-v26.1111.21308-deskbox.5/chatgpt/uninstall.sh",
+      "path": "chatgpt-v26.1111.21308-deskbox.6/chatgpt/uninstall.sh",
       "sha256": "20bed30d4599dbb34e984e5b94185f6cd46dd8f6c79b8c36cde231721c9e2386"
     }
   }
