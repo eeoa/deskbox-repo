@@ -40,5 +40,8 @@ export PYTHONPATH="$gnu_root/usr/lib/python3/dist-packages"
 export PATH="$gnu_root/usr/bin:$PATH"
 export FONTCONFIG_FILE="$view/fonts.conf"
 export FONTCONFIG_PATH="$gnu_root/etc/fonts"
-export GDK_DPI_SCALE="${DESKBOX_FONT_FACTOR:-1}"
+# GTK 3 scales widgets separately from the Xft font DPI supplied by the host.
+widget_scale=$(awk -v scale="${DESKBOX_SCALE:-1}" 'BEGIN {n=int(scale+0.5);print n<1?1:n}')
+font_scale=$(awk -v factor="${DESKBOX_FONT_FACTOR:-1}" -v widgets="$widget_scale" 'BEGIN {printf "%.4f",factor/widgets}')
+export GDK_SCALE="$widget_scale" GDK_DPI_SCALE="$font_scale"
 mkdir -p "$GIMP3_DIRECTORY" "$GIMP3_CACHEDIR"

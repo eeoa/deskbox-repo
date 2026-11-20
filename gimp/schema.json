@@ -2,18 +2,18 @@
   "schemaVersion": 3,
   "id": "gimp",
   "repository": "https://github.com/eeoa/deskbox-repo",
-  "version": "3.0.4-deskbox.2",
+  "version": "3.0.4-deskbox.3",
   "scripts": {
     "install": {
-      "path": "gimp-v3.0.4-deskbox.2/gimp/install.sh",
-      "sha256": "dae89f93358bd1058f43f492308cf18da68b6cda5c21c285e1e2564f2106fed5"
+      "path": "gimp-v3.0.4-deskbox.3/gimp/install.sh",
+      "sha256": "6302f3d5801ec803c9f2ec38d310906ea94c05b0ab69c6a756994d1e9cf34309"
     },
     "launch": {
-      "path": "gimp-v3.0.4-deskbox.2/gimp/launch.sh",
+      "path": "gimp-v3.0.4-deskbox.3/gimp/launch.sh",
       "sha256": "79cb14af71eddeb47dcbfd71a6683b1cd98257b554a93fb5cf87aed23c8edfaa"
     },
     "uninstall": {
-      "path": "gimp-v3.0.4-deskbox.2/gimp/uninstall.sh",
+      "path": "gimp-v3.0.4-deskbox.3/gimp/uninstall.sh",
       "sha256": "af4296be1b23bfee103fbdc8f34027e05f8e701b9608b2c1ca8a0f8daa168208"
     }
   }
