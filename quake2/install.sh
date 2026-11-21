@@ -7,7 +7,7 @@ fetch_file() {
     name="$1"; checksum="$2"
     if ! printf '%s  %s\n' "$checksum" "$release_dir/$name" | sha256sum -c - >/dev/null 2>&1; then
         curl --fail --silent --show-error --connect-timeout 15 --max-time 120 --output "$release_dir/$name.part" \
-            "https://raw.githubusercontent.com/eeoa/deskbox-repo/refs/tags/quake2-v8.50-deskbox.1/quake2/$name"
+            "https://raw.githubusercontent.com/eeoa/deskbox-repo/refs/tags/quake2-v8.50-deskbox.2/quake2/$name"
         printf '%s  %s\n' "$checksum" "$release_dir/$name.part" | sha256sum -c - >/dev/null
         mv "$release_dir/$name.part" "$release_dir/$name"
     fi
