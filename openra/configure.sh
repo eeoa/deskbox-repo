@@ -23,6 +23,9 @@ if [ "${DESKBOX_GRAPHICS:-llvmpipe}" = kgsl ]; then
 elif [ "${DESKBOX_GNU_GRAPHICS:-software}" = venus-dri3 ]; then
     export DESKBOX_GNU_LIBRARY_PATH_EXTRA="$openra_root:$gnu_root/usr/lib/aarch64-linux-gnu/pulseaudio${DESKBOX_GNU_LIBRARY_PATH_EXTRA:+:$DESKBOX_GNU_LIBRARY_PATH_EXTRA}"
     gnu_graphics
+    # Bound pixel work for sustained GPU performance on external 4K displays.
+    render_width=1920
+    render_height=1080
 else
     export DESKBOX_GNU_LIBRARY_PATH_EXTRA="$openra_root:$gnu_root/usr/lib/aarch64-linux-gnu/pulseaudio${DESKBOX_GNU_LIBRARY_PATH_EXTRA:+:$DESKBOX_GNU_LIBRARY_PATH_EXTRA}"
     export LIBGL_DRIVERS_PATH="$gnu_root/usr/lib/aarch64-linux-gnu/dri"
