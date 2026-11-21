@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 3,
+  "id": "quake2",
+  "repository": "https://github.com/eeoa/deskbox-repo",
+  "version": "8.50-deskbox.1",
+  "scripts": {
+    "install": {
+      "path": "quake2-v8.50-deskbox.1/quake2/install.sh",
+      "sha256": "73390f9b22fbd9e01f5c1e637a16eca4c6d9176a0afbdcbcfea19688f8b1e95a"
+    },
+    "launch": {
+      "path": "quake2-v8.50-deskbox.1/quake2/launch.sh",
+      "sha256": "33ddb52a51ca067086912a5e35be9f7117a083838903f948db90390c452a16d7"
+    },
+    "uninstall": {
+      "path": "quake2-v8.50-deskbox.1/quake2/uninstall.sh",
+      "sha256": "2ad7d4702226eb3629f946c31b42f613a9f8ea94fbe17e225a79e914f88d50c3"
+    }
+  }
+}
