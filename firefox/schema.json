@@ -2,18 +2,18 @@
   "schemaVersion": 3,
   "id": "firefox",
   "repository": "https://github.com/eeoa/deskbox-repo",
-  "version": "159.0.1-deskbox.3",
+  "version": "159.0.1-deskbox.4",
   "scripts": {
     "install": {
-      "path": "firefox-v159.0.1-deskbox.3/firefox/install.sh",
-      "sha256": "a999b7ef777ed04fd4b33dd9fd477f5798d337ca30cd174e55a16d58e14c84a1"
+      "path": "firefox-v159.0.1-deskbox.4/firefox/install.sh",
+      "sha256": "a2a581edafaa651f9de4b0e653722bb960956a6d87af07e41465294f29eaaf31"
     },
     "launch": {
-      "path": "firefox-v159.0.1-deskbox.3/firefox/launch.sh",
+      "path": "firefox-v159.0.1-deskbox.4/firefox/launch.sh",
       "sha256": "7af1b9b510199d43a757b6e24282df5f62031e9440f79a03e54fd38641f38998"
     },
     "uninstall": {
-      "path": "firefox-v159.0.1-deskbox.3/firefox/uninstall.sh",
+      "path": "firefox-v159.0.1-deskbox.4/firefox/uninstall.sh",
       "sha256": "94e302e62c37d41b630edc40af0ef85f899fa94c1855e36cc0fd9775a6ffc999"
     }
   }

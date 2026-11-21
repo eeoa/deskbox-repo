@@ -38,6 +38,30 @@
       "depends": "hicolor-icon-theme"
     },
     {
+      "id": "angle-android",
+      "version": "2.1.24923-f09a19ce-2",
+      "architecture": "aarch64",
+      "url": "https://packages.termux.dev/apt/termux-main/pool/main/a/angle-android/angle-android_2.1.24923-f09a19ce-2_aarch64.deb",
+      "bytes": 3006888,
+      "sha256": "3e421cecefc8cb5ca9c57ffe1eb38f77dc315d88d99f1018ef0fdd2add6ca330",
+      "depends": "",
+      "metadata": {
+        "Package": "angle-android",
+        "Installed-Size": "19516",
+        "Maintainer": "@termux",
+        "Architecture": "aarch64",
+        "Version": "2.1.24923-f09a19ce-2",
+        "Filename": "pool/main/a/angle-android/angle-android_2.1.24923-f09a19ce-2_aarch64.deb",
+        "Size": "3006888",
+        "MD5sum": "77ffa887f714b2704fd237951e690543",
+        "SHA1": "00b7084363033369bb3d7d6559d388ed66d5f127",
+        "SHA256": "3e421cecefc8cb5ca9c57ffe1eb38f77dc315d88d99f1018ef0fdd2add6ca330",
+        "SHA512": "8736a2f44338be7cb8dd070926a72b64eaeb522f23df2560c8fab01a516e0c9eaf1e82faff9e6e076ae40e106bc3d26cff46527b25be3468eb96b78a8877e2ac",
+        "Description": "A conformant OpenGL ES implementation for Windows, Mac, Linux, iOS and Android",
+        "Homepage": "https://chromium.googlesource.com/angle/angle"
+      }
+    },
+    {
       "id": "at-spi2-core",
       "version": "2.62.1",
       "architecture": "aarch64",
@@ -123,7 +147,7 @@
       "id": "firefox",
       "version": "159.0.1-1",
       "architecture": "aarch64",
-      "url": "https://packages.termux.dev/apt/termux-x11/pool/main/f/firefox/firefox_159.0.1-1_aarch64.deb",
+      "url": "https://github.com/eeoa/deskbox-repo/releases/download/firefox-v159.0.1-deskbox.4/firefox_159.0.1-1_aarch64.deb",
       "bytes": 69319252,
       "sha256": "e53a28e16938c070c979b6510c05425c24e84c1f503060ccc85352927995631d",
       "depends": "ffmpeg, fontconfig, freetype, gdk-pixbuf, glib, gtk3, libandroid-shmem, libandroid-spawn, libc++, libcairo, libevent, libffi, libice, libicu, libjpeg-turbo, libnspr, libnss, libpixman, libsm, libvpx, libwayland, libwebp, libx11, libxcb, libxcomposite, libxdamage, libxext, libxfixes, libxkbcommon, libxrandr, libxtst, pango, pulseaudio, zlib",
@@ -1353,6 +1377,31 @@
       "bytes": 2468280,
       "sha256": "3fa9352d528cb19aebcdd2de5d1fb0cb67b201be3ae264207fc1a277d2cfd6da",
       "depends": ""
+    },
+    {
+      "id": "virglrenderer-android",
+      "version": "1.3.0-1",
+      "architecture": "aarch64",
+      "url": "https://packages.termux.dev/apt/termux-main/pool/main/v/virglrenderer-android/virglrenderer-android_1.3.0-1_aarch64.deb",
+      "bytes": 1182656,
+      "sha256": "f1a7297bc0edf701b2955fcc9ba679707e092e1b78d9f1d620ba9e4567aa0c5b",
+      "depends": "angle-android",
+      "metadata": {
+        "Package": "virglrenderer-android",
+        "Installed-Size": "9768",
+        "Maintainer": "@licy183",
+        "Architecture": "aarch64",
+        "Version": "1.3.0-1",
+        "Depends": "angle-android",
+        "Filename": "pool/main/v/virglrenderer-android/virglrenderer-android_1.3.0-1_aarch64.deb",
+        "Size": "1182656",
+        "MD5sum": "595f67b94c67d710053ed34898c87da0",
+        "SHA1": "1d7c6c0564270f524def31c32927beca581af2c6",
+        "SHA256": "f1a7297bc0edf701b2955fcc9ba679707e092e1b78d9f1d620ba9e4567aa0c5b",
+        "SHA512": "910113843e3acf829566a2ec897a2a2538254465e7a2728a52c8eea2d3bcabe5dca35d08d26998c38128ef32f7072b99a56df972a6022fd3cc0c640d991281a0",
+        "Description": "A virtual 3D GPU for use inside qemu virtual machines over OpenGLES libraries on Android",
+        "Homepage": "https://virgil3d.github.io/"
+      }
     },
     {
       "id": "vulkan-icd",

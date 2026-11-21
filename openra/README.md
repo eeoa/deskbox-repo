@@ -1,7 +1,7 @@
 # OpenRA · Red Alert（ARM64 预览）
 
-当前资源 `20261026-playtest-deskbox.5`，需要含 OpenRA Activity 的 Desk Box
-（本轮 APK 为 `0.15.0-dev.36`）。OPD2403／Android 16 的 3000×2120 短场景中，
+当前资源 `20261026-playtest-deskbox.6`，需要含 OpenRA Activity 的 Desk Box
+（本轮 APK 为 `0.15.0-dev.37`）。OPD2403／Android 16 的 3000×2120 短场景中，
 原版 GNU Mesa KGSL + SDL EGL 达到约 60 FPS；两分钟复测检查场景、文字与操作栏。
 这是小规模战役场景，不代表大型对战或长期稳定性。触屏首次点击仍可能需要重试，建议鼠标。
 
@@ -42,3 +42,5 @@ render中位5.75 ms、P95 18.00 ms。热重连、8个归属进程的强制关闭
 存档和其他程序收据摘要未变。首次加载过程中暂停客户端并插入GPU基准曾导致菜单atlas色块；
 独立冷启动的菜单与读档面板未复现，底层原因尚未定位。运行基准前应等待菜单加载完毕，
 多GPU客户端并发稳定性仍待验证。
+
+`.6` 增加非 KGSL GPU 的自动性能配置：当前 Pixel / Tensor 的 VirGL 战役会丢失 atlas 纹理，正式路径继续使用画面正确的 llvmpipe，启动脚本请求最大1280×720内部表面、自动修正游戏显示比例。Android窗口大小不受限制，内部画面精细度会下降；不需要用户手动设置。公共渲染预算需要Desk Box dev.37。KGSL配置与145包依赖保持。

@@ -14,7 +14,13 @@ user_pref("deskbox.profile.id", "$(cat "$profile/.deskbox-profile-id")");
 PREFS
 fi
 accelerated=false; software=true; video=false
-if [ "$DESKBOX_GRAPHICS" = kgsl ]; then accelerated=true; software=false; fi
+canvas=true
+case "$DESKBOX_GRAPHICS" in kgsl|android) accelerated=true; software=false ;; esac
+if [ "$DESKBOX_GRAPHICS" = android ]; then
+    # GPU readback of a full desktop is slower than SW WebRender on this bridge.
+    # Keep WebGL on the real GPU while compositing and Canvas2D use the fast CPU path.
+    accelerated=false; software=true; canvas=false
+fi
 if [ "${DESKBOX_VIDEO_ACTIVE:-0}" = 1 ]; then video=true; fi
 font_size=$(awk -v factor="$DESKBOX_FONT_FACTOR" 'BEGIN {print int(14*factor+0.5)}')
 font_css=$(awk -v factor="$DESKBOX_FONT_FACTOR" 'BEGIN {printf "%.2f",14*factor}')
@@ -28,6 +34,7 @@ user_pref("layout.css.devPixelsPerPx", "1.0");
 user_pref("layers.acceleration.force-enabled", $accelerated);
 user_pref("gfx.webrender.all", true);
 user_pref("gfx.webrender.software", $software);
+user_pref("gfx.canvas.accelerated", $canvas);
 user_pref("media.ffmpeg.vaapi.enabled", $video);
 user_pref("media.hardware-video-decoding.enabled", $video);
 user_pref("media.hardware-video-decoding.force-enabled", $video);
@@ -48,6 +55,10 @@ state=$DESKBOX_SESSION_STATE/display.json
 jq --argjson port "$port" --argjson font "$font_css" '. + {automationPort:$port,fontCss:$font}' "$state" > "$state.new"; mv "$state.new" "$state"
 export LD_LIBRARY_PATH="$PREFIX/lib/firefox:$PREFIX/lib"
 export MOZ_ENABLE_WAYLAND=0
+if [ "$DESKBOX_GRAPHICS" = android ]; then
+    export MOZ_X11_EGL=1 GALLIUM_DRIVER=virpipe MESA_LOADER_DRIVER_OVERRIDE=swrast LIBGL_DRI3_DISABLE=1
+    unset LIBGL_ALWAYS_SOFTWARE
+fi
 export DESKBOX_FIREFOX_PROFILE="$profile"
 export DESKBOX_START_URL=about:home
 if [ "${DESKBOX_AUTOMATION:-0}" = 1 ]; then export MOZ_REMOTE_ALLOW_SYSTEM_ACCESS=1; fi

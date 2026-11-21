@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "openra",
-  "version": "20261026-playtest-deskbox.5",
+  "version": "20261026-playtest-deskbox.6",
   "roots": [
     "gnu-libgl1",
     "gnu-libgl1-mesa-dri",

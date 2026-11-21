@@ -1,0 +1,17 @@
+{
+  "archive": {
+    "id": "firefox",
+    "version": "159.0.1-1",
+    "architecture": "aarch64",
+    "url": "https://github.com/eeoa/deskbox-repo/releases/download/firefox-v159.0.1-deskbox.4/firefox_159.0.1-1_aarch64.deb",
+    "bytes": 69319252,
+    "sha256": "e53a28e16938c070c979b6510c05425c24e84c1f503060ccc85352927995631d",
+    "depends": "ffmpeg, fontconfig, freetype, gdk-pixbuf, glib, gtk3, libandroid-shmem, libandroid-spawn, libc++, libcairo, libevent, libffi, libice, libicu, libjpeg-turbo, libnspr, libnss, libpixman, libsm, libvpx, libwayland, libwebp, libx11, libxcb, libxcomposite, libxdamage, libxext, libxfixes, libxkbcommon, libxrandr, libxtst, pango, pulseaudio, zlib",
+    "storeRevision": 2
+  },
+  "originalUrl": "https://packages.termux.dev/apt/termux-x11/pool/main/f/firefox/firefox_159.0.1-1_aarch64.deb",
+  "upstreamSourceUrl": "https://archive.mozilla.org/pub/firefox/releases/159.0.1/source/firefox-159.0.1.source.tar.xz",
+  "upstreamSourceSha256": "b5fe407199685f8bddf3b2c81feb8b805429e6f3d307c9430f53456f85b6e063",
+  "recipeRepository": "https://github.com/termux/termux-packages/tree/931626d145c9ee68329fcb0dc6084f63fadfc049/x11-packages/firefox",
+  "note": "Archive is byte-identical to the pinned upstream package; inspected recipe commit is not asserted as the binary build commit."
+}
