@@ -1,7 +1,7 @@
 # OpenRA · Red Alert（ARM64 预览）
 
-当前资源 `20261026-playtest-deskbox.6`，需要含 OpenRA Activity 的 Desk Box
-（本轮 APK 为 `0.15.0-dev.37`）。OPD2403／Android 16 的 3000×2120 短场景中，
+当前资源 `20261026-playtest-deskbox.7`，需要含 OpenRA Activity 的 Desk Box
+（本轮 APK 为 `0.15.0-dev.38`）。OPD2403／Android 16 的 3000×2120 短场景中，
 原版 GNU Mesa KGSL + SDL EGL 达到约 60 FPS；两分钟复测检查场景、文字与操作栏。
 这是小规模战役场景，不代表大型对战或长期稳定性。触屏首次点击仍可能需要重试，建议鼠标。
 
@@ -23,7 +23,7 @@ SHA256 `740d2ca52248a215d7e45b5eee706031f19fa105acf0b42c6a5cd8fad8e76a35`。
 schema 3 的 install／launch／uninstall 按固定 tag 和 SHA256 取得脚本与资源。
 145 包共 178,604,544 个归档字节；共享依赖按哈希复用，不执行包内维护脚本。
 自动／KGSL 设置使用 FD750、SDL `SDL_VIDEO_X11_FORCE_EGL=1`，帧率上限 60、VSync 关闭。
-GLX 直通出现文字／纹理缺失，Zink 探针黑屏，均未采用；VirGL 图像回读曾只有约 16 FPS，已退出正式路径。
+早期 KGSL GLX 直通出现文字／纹理缺失；Pixel 的 GLES VirGL 也存在 atlas 问题，均未采用为该设备的游戏路径。
 显式软件模式继续使用 Debian llvmpipe，原生分辨率约 2 FPS。
 
 GNU Xlib locale、SDL 显示比例、PulseAudio 子目录和 PseudoFullscreen 由标准配置准备。
@@ -44,3 +44,5 @@ render中位5.75 ms、P95 18.00 ms。热重连、8个归属进程的强制关闭
 多GPU客户端并发稳定性仍待验证。
 
 `.6` 增加非 KGSL GPU 的自动性能配置：当前 Pixel / Tensor 的 VirGL 战役会丢失 atlas 纹理，正式路径继续使用画面正确的 llvmpipe，启动脚本请求最大1280×720内部表面、自动修正游戏显示比例。Android窗口大小不受限制，内部画面精细度会下降；不需要用户手动设置。公共渲染预算需要Desk Box dev.37。KGSL配置与145包依赖保持。
+
+`.7` 在 Desk Box dev.38 的公共 GNU 图形能力通过真实窗口绘制、GPU 图像导入和 Android 硬件缓冲区回读后，自动采用原版 GNU Zink/Venus 与系统 Vulkan。像素在 GPU 内拷入共享硬件缓冲区，保留现有 X11 窗口和输入接口；游戏和145包载荷保持。GPU 路径使用原生表面分辨率，不再申请720p预算。启动脚本先请求全屏并等待尺寸稳定，避免引擎缓存旧窗口大小。原有 KGSL 路径保持；显式软件模式或能力探测失败继续正确回退。缓冲区桥属于 App 公共运行时，不是游戏专用二进制。
