@@ -5,6 +5,21 @@ set -eu
 gnu_root="$PREFIX/gnu/root"
 engine="$gnu_root/usr/lib/yamagi-quake2"
 data="$HOME/Games/QuakeII"
+# Seed only a new profile. Subsequent launches keep in-game key changes.
+profile="$HOME/.yq2/baseq2"
+mkdir -p "$profile"
+if [ ! -e "$profile/config.cfg" ]; then
+    (set -C; cat > "$profile/config.cfg" <<'CONFIG'
+// Desk Box first-run defaults; subsequent changes belong to the game.
+bind w "+forward"
+bind a "+moveleft"
+bind s "+back"
+bind d "+moveright"
+bind SPACE "+moveup"
+bind CTRL "+movedown"
+CONFIG
+    ) || [ -f "$profile/config.cfg" ]
+fi
 export DESKBOX_GNU_LIBRARY_PATH_EXTRA="$engine:$gnu_root/usr/lib/aarch64-linux-gnu/pulseaudio${DESKBOX_GNU_LIBRARY_PATH_EXTRA:+:$DESKBOX_GNU_LIBRARY_PATH_EXTRA}"
 export SDL_VIDEODRIVER=x11 SDL_AUDIODRIVER=pulseaudio ALSOFT_DRIVERS=pulse
 export XLOCALEDIR="$gnu_root/usr/share/X11/locale"
